@@ -19,7 +19,7 @@ public class 字符串中找出连续最长的数字串 {
      * 123456789
      * @param args
      */
-    public static void main(String[] args){
+    public static void main1(String[] args){
         Scanner sc = new Scanner(System.in);
         while(sc.hasNext()){
             String str = sc.nextLine();
@@ -36,6 +36,25 @@ public class 字符串中找出连续最长的数字串 {
             }
             tmp = tmp.length()>s.length() ? tmp:s;
             System.out.println(tmp);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            String str = sc.nextLine();
+            String result = "";
+            for (int i = 0; i < str.length(); i++) {
+                String tmp = "";
+                while (i < str.length() && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+                    tmp = tmp + str.charAt(i);
+                    i++;
+                }
+                if (tmp.length() > result.length()) {
+                    result = tmp;
+                }
+            }
+            System.out.println(result);
         }
     }
 }
